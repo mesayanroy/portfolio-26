@@ -13,16 +13,16 @@ import { Java } from "@/components/ui/svgs/java";
 import { Csharp } from "@/components/ui/svgs/csharp";
 
 export const DATA = {
-  name: "Dillion Verma",
-  initials: "DV",
+  name: "Sayan Roy",
+  initials: "SR",
   url: "https://dillion.io",
   location: "San Francisco, CA",
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description:
-    "Software Engineer turned Entrepreneur. I love building things and helping people. Very active on Twitter.",
+    "Web 3 & AI Engineer turned Entrepreneur. I like to solve complex engineering problems. Actively on Twitter.",
   summary:
-    "At the end of 2022, I quit my job as a software engineer to go fulltime into building and scaling my own SaaS businesses. In the past, [I pursued a double degree in computer science and business](/#education), [interned at big tech companies in Silicon Valley](https://www.youtube.com/watch?v=d-LJ2e5qKdE), and [competed in over 21 hackathons for fun](/#hackathons). I also had the pleasure of being a part of the first ever in-person cohort of buildspace called [buildspace sf1](https://buildspace.so/sf1).",
-  avatarUrl: "/me.png",
+    "Currently serving as Stellar India Ambassador, ex Move club member . Been around 1.5 years in actively building around web3. Worked with more than 15+ different chains..[I'm pursuing a bachelors degree in computer science](/#education), [interned at big tech companies & startups](https://youtu.be/7Yuw5vHb_Wk), and [Won 7x hackathons](/#hackathons). I enjoy working at the systems layer by designing secure, modular, and efficient on-chain/off-chain architectures that improve execution, trust, and developer experience rather than simply adding more complexity. I also had the pleasure of being a part of SAP Hackfest'26 as National Finalist scaled the product to 1k + users at Coimbatore [SAP Hackfest'25](https://www.sap.com/india/index.html).",
+  avatarUrl: "/me.jpg",
   skills: [
     { name: "React", icon: ReactLight },
     { name: "Next.js", icon: NextjsIconDark },
