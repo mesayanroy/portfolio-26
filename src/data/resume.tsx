@@ -583,7 +583,7 @@ export const DATA = {
       dates: "2024",
       location: "Online",
       description:
-        "3rd Place - Bug Bounty Track. Awarded 3rd place for security vulnerability research, threat modeling, and smart contract auditing.",
+        "Selected top 150 projects for security vulnerability research, threat modeling, and smart contract auditing.",
       image: "/hackquest.png",
       links: [],
     },
