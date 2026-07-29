@@ -25,6 +25,23 @@ function ProjectImage({ src, alt }: { src: string; alt: string }) {
   );
 }
 
+function getDirectVideoUrl(url: string) {
+  if (!url) return url;
+  if (url.includes("player.cloudinary.com/embed")) {
+    try {
+      const parsed = new URL(url);
+      const cloudName = parsed.searchParams.get("cloud_name");
+      const publicId = parsed.searchParams.get("public_id");
+      if (cloudName && publicId) {
+        return `https://res.cloudinary.com/${cloudName}/video/upload/${publicId}.mp4`;
+      }
+    } catch {
+      // fallback to original url
+    }
+  }
+  return url;
+}
+
 interface Props {
   title: string;
   href?: string;
@@ -70,7 +87,7 @@ export function ProjectCard({
         >
           {video ? (
             <video
-              src={video}
+              src={getDirectVideoUrl(video)}
               autoPlay
               loop
               muted

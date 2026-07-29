@@ -5,6 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
+import ContributionsSection from "@/components/section/contributions-section";
 import ContactSection from "@/components/section/contact-section";
 import HackathonsSection from "@/components/section/hackathons-section";
 import ProjectsSection from "@/components/section/projects-section";
@@ -31,6 +32,29 @@ export default function Page() {
                 delay={BLUR_FADE_DELAY}
                 text={DATA.description}
               />
+              <BlurFade delay={BLUR_FADE_DELAY * 2}>
+                <div className="flex items-center gap-4 pt-1">
+                  <Link
+                    href="/resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium text-muted-foreground/70 hover:text-foreground underline underline-offset-4 cursor-pointer transition-colors shadow-sm decoration-muted-foreground/50 inline-flex items-center gap-1"
+                  >
+                    <span>CV</span>
+                    <ArrowUpRight className="size-3.5" />
+                  </Link>
+                  <span className="text-muted-foreground/40">•</span>
+                  <Link
+                    href="https://hashnode.com/@mesayanroy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium text-muted-foreground/70 hover:text-foreground underline underline-offset-4 cursor-pointer transition-colors shadow-sm decoration-muted-foreground/50 inline-flex items-center gap-1"
+                  >
+                    <span>Articles</span>
+                    <ArrowUpRight className="size-3.5" />
+                  </Link>
+                </div>
+              </BlurFade>
             </div>
             <BlurFade delay={BLUR_FADE_DELAY} className="order-1 md:order-2">
               <Avatar className="size-24 md:size-32 border rounded-full shadow-lg ring-4 ring-muted">
@@ -58,10 +82,18 @@ export default function Page() {
       <section id="work">
         <div className="flex min-h-0 flex-col gap-y-6">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
-            <h2 className="text-xl font-bold">Work Experience</h2>
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-bold">Work Experience</h2>
+              <Link
+                href="/work"
+                className="text-sm font-medium text-muted-foreground/70 hover:text-foreground underline underline-offset-4 cursor-pointer transition-colors shadow-sm decoration-muted-foreground/50"
+              >
+                +6 more
+              </Link>
+            </div>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 6}>
-            <WorkSection />
+            <WorkSection limit={3} />
           </BlurFade>
         </div>
       </section>
@@ -84,13 +116,15 @@ export default function Page() {
                 >
                   <div className="flex items-center gap-x-3 flex-1 min-w-0">
                     {education.logoUrl ? (
-                      <img
-                        src={education.logoUrl}
-                        alt={education.school}
-                        className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border overflow-hidden object-contain flex-none"
-                      />
+                      <div className="size-8 md:size-10 border rounded-full shadow ring-2 ring-border/50 overflow-hidden bg-background flex-none flex items-center justify-center">
+                        <img
+                          src={education.logoUrl}
+                          alt={education.school}
+                          className="size-full object-cover rounded-full"
+                        />
+                      </div>
                     ) : (
-                      <div className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border bg-muted flex-none" />
+                      <div className="size-8 md:size-10 border rounded-full shadow ring-2 ring-border/50 bg-muted flex-none" />
                     )}
                     <div className="flex-1 min-w-0 flex flex-col gap-0.5">
                       <div className="font-semibold leading-none flex items-center gap-2">
@@ -135,8 +169,26 @@ export default function Page() {
           <ProjectsSection />
         </BlurFade>
       </section>
+      <section id="contributions">
+        <div className="flex min-h-0 flex-col gap-y-6">
+          <BlurFade delay={BLUR_FADE_DELAY * 12}>
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-bold">Contributions</h2>
+              <Link
+                href="/contributions"
+                className="text-sm font-medium text-muted-foreground/70 hover:text-foreground underline underline-offset-4 cursor-pointer transition-colors shadow-sm decoration-muted-foreground/50"
+              >
+                more...
+              </Link>
+            </div>
+          </BlurFade>
+          <BlurFade delay={BLUR_FADE_DELAY * 13}>
+            <ContributionsSection limit={4} />
+          </BlurFade>
+        </div>
+      </section>
       <section id="hackathons">
-        <BlurFade delay={BLUR_FADE_DELAY * 13}>
+        <BlurFade delay={BLUR_FADE_DELAY * 14}>
           <HackathonsSection />
         </BlurFade>
       </section>

@@ -16,24 +16,28 @@ function LogoImage({ src, alt }: { src: string; alt: string }) {
 
   if (!src || imageError) {
     return (
-      <div className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border bg-muted flex-none" />
+      <div className="size-8 md:size-10 border rounded-full shadow ring-2 ring-border bg-muted flex-none" />
     );
   }
 
   return (
-    <img
-      src={src}
-      alt={alt}
-      className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border overflow-hidden object-contain flex-none"
-      onError={() => setImageError(true)}
-    />
+    <div className="size-8 md:size-10 border rounded-full shadow ring-2 ring-border overflow-hidden bg-background flex-none flex items-center justify-center">
+      <img
+        src={src}
+        alt={alt}
+        className="size-full object-cover rounded-full"
+        onError={() => setImageError(true)}
+      />
+    </div>
   );
 }
 
-export default function WorkSection() {
+export default function WorkSection({ limit }: { limit?: number }) {
+  const workItems = limit ? DATA.work.slice(0, limit) : DATA.work;
+
   return (
     <Accordion type="single" collapsible className="w-full grid gap-6">
-      {DATA.work.map((work) => (
+      {workItems.map((work) => (
         <AccordionItem
           key={work.company}
           value={work.company}
