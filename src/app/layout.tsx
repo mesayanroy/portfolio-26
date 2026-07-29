@@ -28,6 +28,13 @@ export const metadata: Metadata = {
     template: `%s | ${DATA.name}`,
   },
   description: DATA.description,
+  icons: {
+    icon: [
+      { url: "/me.jpg", type: "image/jpeg" },
+    ],
+    shortcut: "/me.jpg",
+    apple: "/me.jpg",
+  },
   openGraph: {
     title: `${DATA.name}`,
     description: DATA.description,
@@ -64,6 +71,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/me.jpg" type="image/jpeg" />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased relative",
